@@ -19,7 +19,6 @@ public class BlogPost {
     }    
 
     public BlogPost(String title, String author, String blogEntry) {
-        this.id = id;
         this.title = title;
         this.author = author;
         this.blogEntry = blogEntry;
