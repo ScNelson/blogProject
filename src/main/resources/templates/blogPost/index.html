@@ -12,26 +12,31 @@
 <body>
     <div class="container">
         <h1>Welcome to Steven's Blog!</h1>
-        <p>Please use the form below to submit a blog post:</p>
-        <form action="#" th:action="@{/}" th:object="${blogPost}" method="post">
-            <table>
-                <tr>
-                    <td>Title</td>
-                    <td><input type="text" th:field="*{title}" /></td>
-                </tr>
-                <tr>
-                    <td>Author:</td>
-                    <td><input type="text" th:field="*{author}" /></td>
-                </tr>
-                <tr>
-                    <td>Blog Entry:</td>
-                    <td><input type="text" th:field="*{blogEntry}" /></td>
-                </tr>
-                <tr>
-                    <td><button type="submit">Submit Your Post</button></td>
-                </tr>
-            </table>
-        </form>
+
+        <div class="row">
+            <div th:each="blog:${posts}">
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <p th:text="${blog.title}"></p>
+                        </div>
+                        <div class="panel-body">
+                            <p th:text="${blog.author}"></p>
+                            <p th:text="${blog.blogEntry}"></p>
+                        </div>
+                        <div class="panel-footer">
+                            <!-- Link to Update -->
+                            <!-- Link to Show  -->
+                            <!--  Link to Destroy -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a th:href="@{/blogpost/new}">
+            <button class="btn btn-primary">Submit a New Blog Post</button>
+        </a>
+
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
