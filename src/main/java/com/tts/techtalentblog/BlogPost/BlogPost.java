@@ -18,7 +18,7 @@ public class BlogPost {
     public BlogPost() {
     }    
 
-    public BlogPost(Long id, String title, String author, String blogEntry) {
+    public BlogPost(String title, String author, String blogEntry) {
         this.id = id;
         this.title = title;
         this.author = author;
