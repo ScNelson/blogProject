@@ -23,11 +23,13 @@
                             <p class="card-text" th:text="${blog.blogEntry}"></p>
                             <p class="card-text" th:text="${blog.author}"></p>
                         </div>
-                        <div class="panel-footer">
-                            <!-- Link to Update -->
-                            <!-- Link to Show  -->
-                            <!--  Link to Destroy -->
-                        </div>
+                        <form action="#" th:action="@{'/blogposts/{id}'(id=${blog.id})}" th:method="delete"
+                            class="form-horizontal">
+                            <div class="form-group">
+                                <input type="hidden" name="_method" value="delete" />
+                                <button type="submit" class="btn btn-danger btn-block" th:text="Delete">Delete</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
