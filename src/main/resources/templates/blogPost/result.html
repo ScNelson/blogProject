@@ -11,10 +11,19 @@
 
 <body>
     <div class="container">
-        <h1>Thank you for your submission!</h1>
-        <p th:text="${title}"></p>
-        <p th:text="${author}"></p>
-        <p th:text="${blogEntry}"></p>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <h1>Thank you for your submission!</h1>
+                    <div class="card-header">
+                        <p th:text="${title}"></p>
+                    </div>
+                    <p style="font-weight: bold;" th:text="${author}"></p>
+                    <p th:text="${blogEntry}"></p>
+                    <div class="card-body"></div>
+                </div>
+            </div>
+        </div>
         
         <a th:href="@{/}">
             <button class="btn btn-success">Back to Home</button>
