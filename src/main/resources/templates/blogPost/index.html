@@ -11,9 +11,10 @@
 </head>
 
 <body>
+    <div th:replace="fragments/navbar :: navbar" ></div>
     <div class="container">
         <h1>Welcome to Steven's Blog!</h1>
-
+        
         <div class="row d-flex justify-content-around">
             <div th:each="blog:${posts}">
                 <div class="card col-md-6 p-0 mb-3" style="min-width: 18rem">
@@ -27,7 +28,7 @@
                             class="form-horizontal">
                             <div class="form-group">
                                 <input type="hidden" name="_method" value="delete" />
-                                <button type="submit" class="btn btn-danger btn-block" th:text="Delete">Delete</button>
+                                <a href="#" th:href="@{blogpost/{id}(id=${blog.id})}" class="card-link btn btn-danger">Delete Post</a>
                             </div>
                         </form>
                     </div>
