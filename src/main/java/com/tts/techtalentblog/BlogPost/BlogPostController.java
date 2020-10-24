@@ -22,6 +22,13 @@ public class BlogPostController {
     
     @GetMapping(value = "/")
     public String index(BlogPost blogPost, Model model) {
+        // Clear out the List
+        posts.removeAll(posts);
+
+        // Refill the List with updated set of BlogPosts
+        for (BlogPost postFromDB : blogPostRepository.findAll()) {
+            posts.add(postFromDB);
+        }
 
         model.addAttribute("posts", posts);
 
@@ -38,8 +45,7 @@ public class BlogPostController {
     @PostMapping(value = "/blogpost") 
     public String addNewBlogPost(BlogPost blogPost, Model model) {
         blogPostRepository.save(new BlogPost(blogPost.getTitle(), blogPost.getAuthor(), blogPost.getBlogEntry()));
-        
-        posts.add(blogPost);
+    
 
         model.addAttribute("title", blogPost.getTitle());
         model.addAttribute("author", blogPost.getAuthor());
@@ -48,9 +54,9 @@ public class BlogPostController {
         return "blogpost/result";
     }
 
-    @RequestMapping(value = "/blogpost/{id}", method = RequestMethod.DELETE)
-    public String deletePostWithID(@PathVariable Long id, BlogPost blogPost) {
+    @RequestMapping(value = "/blogpost/{id}")
+    public String deletePostWithID(@PathVariable Long id, BlogPost blogPost, Model model) {
         blogPostRepository.deleteById(id);
-        return "/blogpost/index";
+        return "redirect:/";
     }
 }
