@@ -21,15 +21,14 @@
                             <p class="card-text" th:text="${blog.blogEntry}"></p>
                             <p class="card-text" th:text="${blog.author}"></p>
                         </div>
-                        <form action="#" th:action="@{'/blogpost/edit/{id}'(id=${blog.id})}" th:method="delete"
-                            class="form-horizontal">
-                            <div class="form-group">
-                                <input type="hidden" name="_method" value="edit" />
-                                <a href="#" th:href="@{blogpost/edit/{id}(id=${blog.id})}" class="card-link btn btn-primary">Edit Post</a>
-                                <input type="hidden" name="_method" value="delete" />
-                                <a href="#" th:href="@{blogpost/delete/{id}(id=${blog.id})}" class="card-link btn btn-danger">Delete Post</a>
-                            </div>
-                        </form>
+                        <div class="card-footer">
+                            <a href="#" th:href="@{blogposts/{id}(id=${blog.id})}">
+                                <button class="btn btn-primary">Edit</button>
+                            </a>
+                            <a href="#" th:href="@{blogposts/delete/{id}(id=${blog.id})}">
+                                <button class="btn btn-danger">Delete</button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
