@@ -8,7 +8,21 @@
 <body>
     <div th:replace="fragments/navbar :: navbar" ></div>
     <div class="container">
+        <h1>Edit Post</h1>
+        <form action="#" th:action="@{~/blogposts/update/{id}(id=${blogPost.id})}" th:object="${blogPost}">
+            <div class="form-group">
+                <label for="blogTitle">Title:</label>
+                <input type="text" class="form-control mb-2" name="blogTitle" th:field="*{title}" />
         
+                <label for="blogAuthor">Author:</label>
+                <input type="text" class="form-control mb-2" name="blogAuthor" th:field="*{author}" />
+        
+                <label for="blogEntry">Blog Entry:</label>
+                <input type="text" class="form-control mb-2" name="blogEntry" th:field="*{blogEntry}" />
+        
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </form>
     </div>
     
 </body>
