@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class BlogPostController {
@@ -54,7 +53,12 @@ public class BlogPostController {
         return "blogpost/result";
     }
 
-    @RequestMapping(value = "/blogpost/{id}")
+    @RequestMapping(value = "/blogpost/edit/{id}")
+    public String editPostWithID(@PathVariable Long id, BlogPost blogPost, Model model) {
+        return "blogpost/edit";
+    }
+
+    @RequestMapping(value = "/blogpost/delete/{id}")
     public String deletePostWithID(@PathVariable Long id, BlogPost blogPost, Model model) {
         blogPostRepository.deleteById(id);
         return "redirect:/";
