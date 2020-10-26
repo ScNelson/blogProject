@@ -1,9 +1,15 @@
 body{
-	background-color: #0B4C5F;
+	background-color: white;
+	font-family: 'Exo 2', sans-serif;
 }
 
+.navbar-default {
+	color: white;
+}
+
+
 .container{
-	background-color: rgba(255, 255, 255, 0.8);
+	background-color: rgba(245, 245, 245, 0.932);
 	margin-top: 20px;
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -28,54 +34,110 @@ body{
 	margin-top: 20px;
 }
 
-.postAlterButton{
-	width: 29%;
-	margin-left: 3%;
+/*#region Posts */
+
+
+.postTopic {
+	text-align: left;
+	font-size: 20px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 30px;
+	margin-bottom: 0px;
+	background-color: rgb(102, 102, 102);
+	color: white;
 }
 
 .postTitle {
-	text-align: center;
+	text-align: left;
+	font-weight: bold;
 	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-left: 30px;
 	margin-bottom: 0px;
-	font-size: 24px;
-	background-color: #0B4C5F;
-	color: white;
-}
-
-.postSubHeader {
-	text-align: center;
-	font-style: italic;
-	font-size: 18px;
-	padding-top: 3px;
-	padding-bottom: 3px;
-	margin-bottom: 0px;
-	background-color: #0f637c;
-	color: white;
+	font-size: 32px;
+	background-color: white;
+	color: black;
 }
 
 .postAuthorDiv {
 	width: 100%;
 	margin: auto;
-	text-align: center;
-	background-color: ghostwhite;
+	text-align: left;
+	padding-left: 30px;
+	padding-bottom: 8px;
+	background-color: white;
 }
 
 .postAuthor {
 	display: inline;
 	text-align: center;
-	font-weight: bold;
-	padding-top: 3px;
-	padding-bottom: 3px;
-	font-size: 14px;
+	font-style: italic;
+	font-size: 18px;
 }
 
 .postBody {
-	margin: auto;
 	text-align: left;
-	width: 90%;
-	margin-top: 10px;
-	margin-bottom: 20px;
+	padding-top: 10px;
+	padding-bottom: 30px;
+	padding-left: 30px;
+	margin: 0px;
+	background-color: white;
+}
+
+.postAlterButton{
+	width: 28%;
+	margin-left: 3%;
+}
+/*#endregion*/
+
+/*#region Modal */
+.modalCard {
+	margin: auto;
+	width: 75%;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.modalTitle {
+	display: inline;
+	float: left;
+	text-align: center;
+	width: 60%;
+	padding-top: 2px;
+	padding-bottom: 3px;
+	background-color: rgb(59, 59, 59);
+	color: white;
+
+}
+
+.modalAuthor {
+	display: inline;
+	float: right;
+	text-align: center;
+	width: 40%;
+	padding-top: 2px;
+	padding-bottom: 3px;
+}
+
+/*#endregion*/
+.formTopicDiv {
+	margin: auto;
+	width: 25%;
+}
+
+.formTopicTitle {
+	display: inline;
+	float: left;
+	width: 43px;
+	padding-top: 6px;
+	margin-right: 1%;
+}
+
+.formTopic {
+	display: inline;
+	float: right;
+	text-align: center;
+	width: 62%;
 }
 
 .formNotBody {
@@ -89,21 +151,26 @@ body{
 }
 
 .editForm {
-	width: 40%;
-	height: 20%;
+	position: relative;
+	width: 30%;
 	margin: auto;
+}
+
+.editFormTopic {
+	display: inline;
+	width: 70%;
 }
 
 .editFormNotBodyTitle {
 	display: inline;
 	float: left;
 	margin-top: 9px;
-	width: 20%;
+	margin-left: 0px;
+	width: 60px;
 }
 
 .editFormNotBody {
 	display: inline;
-	float: right;
 	width: 70%;
 }
 
@@ -120,4 +187,15 @@ body{
 .resultCard {
 	margin: auto;
 	width: 75%
+}
+
+.buttonContainer {
+	margin: auto;
+	width: 50%;
+}
+
+.viewPostAlterButton{
+	width: 42%;
+	margin-top: 3%;
+	margin-left: 5%;
 }
