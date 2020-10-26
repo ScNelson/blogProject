@@ -24,7 +24,7 @@
                             <p class="card-text postBody" th:text="${blog.blogEntry}"></p>
                         </div>
                         <div class="card-footer">
-                            <a href="#" th:href="@{blogposts/{id}(id=${blog.id})}">
+                            <a href="#" th:href="@{blogposts/edit/{id}(id=${blog.id})}">
                                 <button class="btn btn-primary postAlterButton">Edit</button>
                             </a>
                             <a href="#" th:href="@{blogposts/delete/{id}(id=${blog.id})}">
