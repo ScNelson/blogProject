@@ -6,7 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <div th:replace="fragments/styling :: headStyles"></div>
 </head>
+
 <body>
-    
+    <div th:replace="fragments/navbar :: navbar"></div>
+    <div class="container">
+        <h4 class="pageTitle" th:text="${blogPost.title}"></h4>
+        <p class="card-text postSubHeader" th:text="${blogPost.subHeader}"></p>
+        <div class="postAuthorDiv">
+            <p class="card-text postAuthor">Written by:</p>
+            <p class="card-text postAuthor" th:text="${blogPost.author}"></p>
+        </div>
+        <p class="card-text postBody" th:text="${blogPost.blogEntry}"></p>
+
+        <a href="#" th:href="@{blogposts/edit/{id}(id=${blogPost.id})}">
+            <button class="btn btn-primary postAlterButton">Edit</button>
+        </a>
+        <button type="button" class="btn btn-danger postAlterButton" data-toggle="modal"
+            data-target="#exampleModal">
+            Delete
+        </button>
+    </div>
 </body>
+
 </html>
