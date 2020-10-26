@@ -12,13 +12,20 @@ body{
 
 .pageTitle {
 	text-align: center;
+	margin-bottom: 15px;
+}
+
+.newPostButton{
+	width: 30%;
+	margin-left: 35%;
+	margin-top: 5px;
+	margin-bottom: 25px;
 }
 
 .submitPostButton{
 	width: 30%;
 	margin-left: 35%;
-	margin-top: 5px;
-	margin-bottom: 25px;
+	margin-top: 20px;
 }
 
 .postAlterButton{
@@ -47,4 +54,38 @@ body{
 
 .postBody {
 	text-align: left;
+}
+
+.formNotBody {
+	margin: auto;
+	width: 40%;
+}
+
+.formBody {
+	margin: auto;
+	width: 85%;
+}
+
+.editForm {
+	width: 40%;
+	height: 20%;
+	margin: auto;
+}
+
+.editFormNotBodyTitle {
+	display: inline;
+	float: left;
+	margin-top: 9px;
+	width: 20%;
+}
+
+.editFormNotBody {
+	display: inline;
+	float: right;
+	width: 70%;
+}
+
+.editFormBody {
+	margin: auto;
+	width: 85%;
 }
