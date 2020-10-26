@@ -17,14 +17,15 @@
             <p class="card-text postAuthor" th:text="${blogPost.author}"></p>
         </div>
         <p class="card-text postBody" th:text="${blogPost.blogEntry}"></p>
-
-        <a href="#" th:href="@{blogposts/edit/{id}(id=${blogPost.id})}">
-            <button class="btn btn-primary postAlterButton">Edit</button>
-        </a>
-        <button type="button" class="btn btn-danger postAlterButton" data-toggle="modal"
-            data-target="#exampleModal">
-            Delete
-        </button>
+        <div class="buttonContainer">
+            <a href="#" th:href="@{blogposts/edit/{id}(id=${blogPost.id})}">
+                <button class="btn btn-primary viewPostAlterButton">Edit</button>
+            </a>
+            <button type="button" class="btn btn-danger viewPostAlterButton" data-toggle="modal"
+                data-target="#exampleModal">
+                Delete
+            </button>
+        </div>
     </div>
 </body>
 
