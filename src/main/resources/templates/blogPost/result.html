@@ -17,21 +17,18 @@
                     <p class="card-text postTopic" th:text="${blogPost.topic}"></p>
                     <h4 class="card-title postTitle" th:text="${blogPost.title}"></h4>
                     <div class="postAuthorDiv">
-                        <p class="card-text postAuthor">Written by:</p>
                         <p class="card-text postAuthor" th:text="${blogPost.author}"></p>
                     </div>
-                    <div class="card-body">
-                        <p class="card-text postBody" th:text="${blogPost.blogEntry}"></p>
-                    </div>
+                    <p class="card-text postBody" th:text="${blogPost.blogEntry}"></p>
                 </div>
             </div>
         </div>
 
-        <a th:href="@{blogposts/edit/{id}(id=${blogPost.id})}">
-            <button class="btn btn-success submitPostButton">Edit Post</button>
+        <a action="#" th:href="@{/blogposts/edit/{id}(id=${blogPost.id})}" th:object="${blogPost}" method="post">
+            <button class="btn btn-outline-dark submitPostButton">Edit Post</button>
         </a>
         <a th:href="@{/}">
-            <button class="btn btn-success submitPostButton">Back to Home</button>
+            <button class="btn btn-dark submitPostButton">Back to Home</button>
         </a>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
