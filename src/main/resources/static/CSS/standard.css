@@ -9,3 +9,42 @@ body{
 	padding-bottom: 10px;
 	border-radius: 5px; 
 }
+
+#pageTitle {
+	text-align: center;
+}
+
+#submitPostButton{
+	width: 30%;
+	margin-left: 35%;
+	margin-top: 5px;
+	margin-bottom: 25px;
+}
+
+#postAlterButton{
+	width: 45%;
+	margin-left: 3%;
+}
+
+#postTitle {
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-bottom: 0px;
+	background-color: #0B4C5F;
+	color: white;
+}
+
+#postAuthor {
+	text-align: center;
+	font-style: italic;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	margin-bottom: 0px;
+	font-size: 14px;
+	background-color: ghostwhite;
+}
+
+#postBody {
+	text-align: left;
+}
