@@ -75,6 +75,8 @@ public class BlogPostController {
         if (post.isPresent()) {
             BlogPost actualPost = post.get();
             model.addAttribute("blogPost", actualPost);
+        } else {
+            return "Error"; //Using Optional helps prevent null value errors by checking if present
         }
         return "blogpost/edit";
     }
