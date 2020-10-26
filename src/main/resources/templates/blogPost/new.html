@@ -10,13 +10,13 @@
 <body>
     <div th:replace="fragments/navbar :: navbar" ></div>
     <div class="container">
-        <h1>Create a New Blog Post</h1>
+        <h1 class="pageTitle">Create New Post</h1>
         <form action="#" th:action="@{/blogpost}" th:object="${blogPost}" method="post">
             <div class="form-group">
-                <input type="text" class="form-control mb-2" placeholder="Blog Title..." th:field="*{title}" />
-                <input type="text" class="form-control mb-2" placeholder="Your Name Here..." th:field="*{author}" />
-                <input type="text" class="form-control mb-2" placeholder="Blog Entry..." th:field="*{blogEntry}" />
-                <button type="submit" class="btn btn-primary mb-2">Submit Your Post</button>
+                <input type="text" class="form-control mb-2 formNotBody" placeholder="Blog Title..." th:field="*{title}" />
+                <input type="text" class="form-control mb-2 formNotBody" placeholder="Your Name Here..." th:field="*{author}" />
+                <textarea type="text" class="form-control mb-2 formBody" rows="5" placeholder="Blog Entry..." th:field="*{blogEntry}" />
+                <button type="submit" class="btn btn-primary mb-2 submitPostButton">Submit Your Post</button>
             </div>
         </form>
 
