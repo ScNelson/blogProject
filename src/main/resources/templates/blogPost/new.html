@@ -13,11 +13,20 @@
         <h1 class="pageTitle">Create New Post</h1>
         <form action="#" th:action="@{/blogpost}" th:object="${blogPost}" method="post">
             <div class="form-group">
-                <input type="text" class="form-control mb-2 formNotBody" placeholder="Topic..." th:field="*{topic}" />
+                <div class="formTopicDiv">
+                    <p class="formTopicTitle">Topic:</p>
+                    <select class="form-control mb-2 formTopic" id="exampleFormControlSelect1" th:field="*{topic}">
+                        <option th:value="Music">Music</option>
+                        <option th:value="Movies">Movies</option>
+                        <option th:value="Sports">Sports</option>
+                        <option th:value="Politics">Politics</option>
+                        <option th:value="Science">Science</option>
+                    </select>
+                </div>
                 <input type="text" class="form-control mb-2 formNotBody" placeholder="Blog Title..." th:field="*{title}" />
                 <input type="text" class="form-control mb-2 formNotBody" placeholder="Your Name Here..." th:field="*{author}" />
                 <textarea type="text" class="form-control mb-2 formBody" rows="5" placeholder="Blog Entry..." th:field="*{blogEntry}" />
-                <button type="submit" class="btn btn-primary mb-2 submitPostButton">Submit Your Post</button>
+                <button type="submit" class="btn btn-dark mb-2 submitPostButton">Submit Your Post</button>
             </div>
         </form>
 
