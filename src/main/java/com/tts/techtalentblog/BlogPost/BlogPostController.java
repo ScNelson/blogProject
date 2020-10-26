@@ -39,7 +39,7 @@ public class BlogPostController {
 
     @GetMapping(value = "blogpost/new")
     public String newBlog(BlogPost post) {
-        return "blogpost/new";
+        return "blogPost/new";
     }
 
     @GetMapping(value = "/blogposts/view/{id}")
@@ -51,7 +51,7 @@ public class BlogPostController {
             result = post.get();
             model.addAttribute("blogPost", result);
         }
-        return "blogpost/view";
+        return "blogPost/view";
     }
 
     public void addModelAttributes(BlogPost blogPost, Model model) {
@@ -67,7 +67,7 @@ public class BlogPostController {
 
         addModelAttributes(blogPost, model);
 
-        return "blogpost/result";
+        return "blogPost/result";
     }
 
     @RequestMapping(value = "/blogposts/update/{id}")
@@ -80,12 +80,12 @@ public class BlogPostController {
             updatedPost.setTopic(blogPost.getTopic());
             updatedPost.setBlogEntry(blogPost.getBlogEntry());
             blogPostRepository.save(updatedPost);
-            //model.addAttribute("blogPost", actualPost);
+            model.addAttribute("blogPost", updatedPost);
 
             addModelAttributes(blogPost, model);
         }
 
-        return "blogpost/result";
+        return "blogPost/result";
     }
 
     @RequestMapping(value = "/blogposts/edit/{id}")
@@ -100,7 +100,7 @@ public class BlogPostController {
         } else {
             return "Error"; // Using Optional helps prevent null value errors by checking if present
         }
-        return "blogpost/edit";
+        return "blogPost/edit";
     }
 
     @RequestMapping(value = "/blogposts/delete/{id}")
