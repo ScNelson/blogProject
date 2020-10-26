@@ -13,14 +13,16 @@ public class BlogPost {
     private Long id; 
     private String title;
     private String author;
+    private String subHeader;
     private String blogEntry;
 
     public BlogPost() {
     }    
 
-    public BlogPost(String title, String author, String blogEntry) {
+    public BlogPost(String title, String author, String subHeader, String blogEntry) {
         this.title = title;
         this.author = author;
+        this.subHeader = subHeader;
         this.blogEntry = blogEntry;
     }
 
@@ -44,6 +46,14 @@ public class BlogPost {
         this.author = author;
     }
 
+    public String getSubHeader() {
+        return this.subHeader;
+    }
+
+    public void setSubHeader(String subHeader) {
+        this.subHeader = subHeader;
+    }
+
     public String getBlogEntry() {
         return this.blogEntry;
     }
@@ -58,6 +68,7 @@ public class BlogPost {
         return "{" +
             " title='" + getTitle() + "'" +
             ", author='" + getAuthor() + "'" +
+            ", subHeader='" + getSubHeader() + "'" +
             ", blogEntry='" + getBlogEntry() + "'" +
             "}";
     }
