@@ -10,23 +10,23 @@ body{
 	border-radius: 5px; 
 }
 
-#pageTitle {
+.pageTitle {
 	text-align: center;
 }
 
-#submitPostButton{
+.submitPostButton{
 	width: 30%;
 	margin-left: 35%;
 	margin-top: 5px;
 	margin-bottom: 25px;
 }
 
-#postAlterButton{
+.postAlterButton{
 	width: 45%;
 	margin-left: 3%;
 }
 
-#postTitle {
+.postTitle {
 	text-align: center;
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -35,7 +35,7 @@ body{
 	color: white;
 }
 
-#postAuthor {
+.postAuthor {
 	text-align: center;
 	font-style: italic;
 	padding-top: 3px;
@@ -45,6 +45,6 @@ body{
 	background-color: ghostwhite;
 }
 
-#postBody {
+.postBody {
 	text-align: left;
 }
