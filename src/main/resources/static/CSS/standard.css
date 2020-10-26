@@ -52,6 +52,16 @@ body{
 	background-color: ghostwhite;
 }
 
+.postSubHeader {
+	text-align: center;
+	font-style: italic;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	margin-bottom: 0px;
+	font-size: 14px;
+	background-color: ghostwhite;
+}
+
 .postBody {
 	text-align: left;
 }
@@ -83,6 +93,11 @@ body{
 	display: inline;
 	float: right;
 	width: 70%;
+}
+
+.editFormSubHeader {
+	margin: auto;
+	width: 85%;
 }
 
 .editFormBody {
