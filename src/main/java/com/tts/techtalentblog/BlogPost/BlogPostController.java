@@ -62,11 +62,12 @@ public class BlogPostController {
     public String updateExistingPost(@PathVariable Long id, BlogPost blogPost, Model model) {
         Optional<BlogPost> post = blogPostRepository.findById(id);
         if (post.isPresent()) {
-            BlogPost actualPost = post.get();
-            actualPost.setTitle(blogPost.getTitle());
-            actualPost.setAuthor(blogPost.getAuthor());
-            actualPost.setBlogEntry(blogPost.getBlogEntry());
-            blogPostRepository.save(actualPost);
+            BlogPost updatedPost = post.get();
+            updatedPost.setTitle(blogPost.getTitle());
+            updatedPost.setAuthor(blogPost.getAuthor());
+            updatedPost.setSubHeader(blogPost.getSubHeader());
+            updatedPost.setBlogEntry(blogPost.getBlogEntry());
+            blogPostRepository.save(updatedPost);
             //model.addAttribute("blogPost", actualPost);
 
             addModelAttributes(blogPost, model);
