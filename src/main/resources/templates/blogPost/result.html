@@ -14,11 +14,14 @@
             <div class="col-md-12">
                 <h1 class="pageTitle">Thank you for your submission!</h1>
                 <div class="card resultCard">
-                    <h4 class="card-title postTitle" th:text="${title}"></h4>
-                    <p class="card-text postAuthor" th:text="${subHeader}"></p>
-                    <p class="card-text postAuthor" th:text="${author}"></p>
+                    <h4 class="card-title postTitle" th:text="${blogPost.title}"></h4>
+                    <p class="card-text postSubHeader" th:text="${blogPost.subHeader}"></p>
+                    <div class="postAuthorDiv">
+                        <p class="card-text postAuthor">Written by:</p>
+                        <p class="card-text postAuthor" th:text="${blogPost.author}"></p>
+                    </div>
                     <div class="card-body">
-                        <p class="card-text postBody" th:text="${blogEntry}"></p>
+                        <p class="card-text postBody" th:text="${blogPost.blogEntry}"></p>
                     </div>
                 </div>
             </div>
