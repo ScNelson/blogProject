@@ -10,21 +10,19 @@
 <body>
     <div th:replace="fragments/navbar :: navbar"></div>
     <div class="container">
-        <h4 class="pageTitle" th:text="${blogPost.title}"></h4>
         <p class="card-text postTopic" th:text="${blogPost.topic}"></p>
+        <h1 class="postTitle" th:text="${blogPost.title}"></h1>
         <div class="postAuthorDiv">
-            <p class="card-text postAuthor">Written by:</p>
             <p class="card-text postAuthor" th:text="${blogPost.author}"></p>
         </div>
         <p class="card-text postBody" th:text="${blogPost.blogEntry}"></p>
         <div class="buttonContainer">
-            <a href="#" th:href="@{blogposts/edit/{id}(id=${blogPost.id})}">
-                <button class="btn btn-primary viewPostAlterButton">Edit</button>
+            <a href="#" th:href="@{../../blogposts/edit/{id}(id=${blogPost.id})}">
+                <button class="btn btn-outline-dark viewPostAlterButton">Edit</button>
             </a>
-            <button type="button" class="btn btn-danger viewPostAlterButton" data-toggle="modal"
-                data-target="#exampleModal">
-                Delete
-            </button>
+            <a href="#" th:href="@{../../blogposts/delete/{id}(id=${blogPost.id})}">
+                <button class="btn btn-outline-danger viewPostAlterButton">Delete</button>
+            </a>
         </div>
     </div>
 </body>
