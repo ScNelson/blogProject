@@ -18,10 +18,16 @@
             <div th:each="blog:${posts}">
                 <div class="card col-md-6 p-0 mb-3" style="min-width: 28rem">
                     <div class="panel panel-default">
-                        <h4 class="card-title postTitle" th:text="${blog.title}"></h4>
+                        <p class="card-title postTitle" th:text="${blog.title}"></p>
                         <p class="card-text postSubHeader" th:text="${blog.subHeader}"></p>
-                        <p class="card-text postAuthor" th:text="${blog.author}"></p>
+                        <div class="postAuthorDiv">
+                            <p class="card-text postAuthor">Written by:</p>
+                            <p class="card-text postAuthor" th:text="${blog.author}"></p>
+                        </div>
                         <div class="card-footer">
+                            <a href="#" th:href="@{blogposts/view/{id}(id=${blog.id})}">
+                                <button class="btn btn-primary postAlterButton">View</button>
+                            </a>
                             <a href="#" th:href="@{blogposts/edit/{id}(id=${blog.id})}">
                                 <button class="btn btn-primary postAlterButton">Edit</button>
                             </a>
