@@ -12,18 +12,26 @@
         <form action="#" th:action="@{~/blogposts/update/{id}(id=${blogPost.id})}" th:object="${blogPost}">
             <div class="form-group">
                 <div class="editForm">
-                    <label class="editFormNotBodyTitle" for="blogAuthor">Title:</label>
+                    <label class="editFormNotBodyTitle" for="blogTopic">Topic:</label>
+                    <select class="form-control mb-2 editFormTopic" for="blogTopic" th:field="*{topic}">
+                        <option th:value="Music">Music</option>
+                        <option th:value="Movies">Movies</option>
+                        <option th:value="Sports">Sports</option>
+                        <option th:value="Politics">Politics</option>
+                        <option th:value="Science">Science</option>
+                    </select>
+                </div>
+                <div class="editForm">
+                    <label class="editFormNotBodyTitle" for="blogTitle">Title:</label>
                     <input type="text" class="form-control mb-2 editFormNotBody" name="blogTitle" th:field="*{title}" />
                 </div>
                 <div class="editForm">
                     <label class="editFormNotBodyTitle" for="blogAuthor">Author:</label>
                     <input type="text" class="form-control mb-2 editFormNotBody" name="blogAuthor" th:field="*{author}" />
                 </div>
-
-                <textarea type="text" class="form-control mb-2 editFormSubHeader" name="blogTopic" th:field="*{topic}" />
                 <textarea type="text" class="form-control mb-2 editFormBody" name="blogEntry" th:field="*{blogEntry}" />
         
-                <button type="submit" class="btn btn-success submitPostButton">Submit</button>
+                <button type="submit" class="btn btn-dark submitPostButton">Submit</button>
             </div>
         </form>
     </div>
