@@ -57,7 +57,7 @@ public class BlogPostController {
     public void addModelAttributes(BlogPost blogPost, Model model) {
         model.addAttribute("title", blogPost.getTitle());
         model.addAttribute("author", blogPost.getAuthor());
-        model.addAttribute("author", blogPost.getSubHeader());
+        model.addAttribute("author", blogPost.getTopic());
         model.addAttribute("blogEntry", blogPost.getBlogEntry());
     }
 
@@ -77,7 +77,7 @@ public class BlogPostController {
             BlogPost updatedPost = post.get();
             updatedPost.setTitle(blogPost.getTitle());
             updatedPost.setAuthor(blogPost.getAuthor());
-            updatedPost.setSubHeader(blogPost.getSubHeader());
+            updatedPost.setTopic(blogPost.getTopic());
             updatedPost.setBlogEntry(blogPost.getBlogEntry());
             blogPostRepository.save(updatedPost);
             //model.addAttribute("blogPost", actualPost);

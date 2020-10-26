@@ -11,7 +11,7 @@
     <div th:replace="fragments/navbar :: navbar"></div>
     <div class="container">
         <h4 class="pageTitle" th:text="${blogPost.title}"></h4>
-        <p class="card-text postSubHeader" th:text="${blogPost.subHeader}"></p>
+        <p class="card-text postTopic" th:text="${blogPost.topic}"></p>
         <div class="postAuthorDiv">
             <p class="card-text postAuthor">Written by:</p>
             <p class="card-text postAuthor" th:text="${blogPost.author}"></p>
