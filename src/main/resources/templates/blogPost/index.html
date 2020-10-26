@@ -28,16 +28,22 @@
                                 <button class="btn btn-outline-light postAlterButton">View</button>
                             </a>
                             <a href="#" th:href="@{blogposts/edit/{id}(id=${blog.id})}">
-                                <button class="btn btn-outline-warning postAlterButton">Edit</button>
+                                <button class="btn btn-outline-light postAlterButton">Edit</button>
                             </a>
+                            <a href="#" th:href="@{blogposts/delete/{id}(id=${blog.id})}">
+                                <button class="btn btn-outline-danger postAlterButton">Delete</button>
+                            </a>
+                            <!-- Modal Button, taken out until I figure out jQuery methods necessary to pass Thymeleaf variable
                             <button type="button" class="btn btn-outline-danger postAlterButton" data-toggle="modal"
                                 data-target="#exampleModal">
                                 Delete
                             </button>
+                            -->
                         </div>
                     </div>
                 </div>
                 <!-- Delete Modal -->
+                <!--
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -64,6 +70,7 @@
                         </div>
                     </div>
                 </div>
+            -->
             </div>
         </div>
     </div>
