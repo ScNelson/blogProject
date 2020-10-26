@@ -19,7 +19,7 @@ public class BlogPostController {
     private BlogPostRepository blogPostRepository;
 
     private List<BlogPost> posts = new ArrayList<>();
-    
+
     @GetMapping(value = "/")
     public String index(BlogPost blogPost, Model model) {
         // Clear out the List
@@ -32,8 +32,8 @@ public class BlogPostController {
 
         model.addAttribute("posts", posts);
 
-        //blogPost needs to match the folder name in templates
-        //index is the html file in the blogPost folder
+        // blogPost needs to match the folder name in templates
+        // index is the html file in the blogPost folder
         return "blogPost/index";
     }
 
@@ -42,15 +42,19 @@ public class BlogPostController {
         return "blogpost/new";
     }
 
-    @PostMapping(value = "/blogpost") 
-    public String addNewBlogPost(BlogPost blogPost, Model model) {
-        blogPostRepository.save(blogPost);
-    
-
+    public void addModelAttributes(BlogPost blogPost, Model model) {
         model.addAttribute("title", blogPost.getTitle());
         model.addAttribute("author", blogPost.getAuthor());
-	    model.addAttribute("blogEntry", blogPost.getBlogEntry());
-        
+        model.addAttribute("author", blogPost.getSubHeader());
+        model.addAttribute("blogEntry", blogPost.getBlogEntry());
+    }
+
+    @PostMapping(value = "/blogpost")
+    public String addNewBlogPost(BlogPost blogPost, Model model) {
+        blogPostRepository.save(blogPost);
+
+        addModelAttributes(blogPost, model);
+
         return "blogpost/result";
     }
 
@@ -63,20 +67,25 @@ public class BlogPostController {
             actualPost.setAuthor(blogPost.getAuthor());
             actualPost.setBlogEntry(blogPost.getBlogEntry());
             blogPostRepository.save(actualPost);
-            model.addAttribute("blogPost", actualPost);
+            //model.addAttribute("blogPost", actualPost);
+
+            addModelAttributes(blogPost, model);
         }
- 
+
         return "blogpost/result";
     }
 
-    @RequestMapping(value = "/blogposts/{id}")
+    @RequestMapping(value = "/blogposts/edit/{id}")
     public String editPostWithId(@PathVariable Long id, BlogPost blogPost, Model model) {
         Optional<BlogPost> post = blogPostRepository.findById(id);
+
+        BlogPost result;
+
         if (post.isPresent()) {
-            BlogPost actualPost = post.get();
-            model.addAttribute("blogPost", actualPost);
+            result = post.get();
+            model.addAttribute("blogPost", result);
         } else {
-            return "Error"; //Using Optional helps prevent null value errors by checking if present
+            return "Error"; // Using Optional helps prevent null value errors by checking if present
         }
         return "blogpost/edit";
     }
