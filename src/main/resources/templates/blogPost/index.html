@@ -10,33 +10,31 @@
 <body>
     <div th:replace="fragments/navbar :: navbar" ></div>
     <div class="container">
-        <h1>Welcome to Steven's Blog!</h1>
-        
+        <h1 id="pageTitle">Welcome to Steven's Blog!</h1>
+        <a th:href="@{/blogpost/new}">
+            <button id="submitPostButton" class="btn btn-primary">Submit New Post</button>
+        </a>
         <div class="row d-flex justify-content-around">
             <div th:each="blog:${posts}">
                 <div class="card col-md-6 p-0 mb-3" style="min-width: 18rem">
                     <div class="panel panel-default">
-                        <h4 class="class-header" th:text="${blog.title}"></h4>
+                        <h4 id="postTitle" class="card-title" th:text="${blog.title}"></h4>
+                        <p id="postAuthor" class="card-text" th:text="${blog.author}"></p>
                         <div class="card-body">
-                            <p class="card-text" th:text="${blog.blogEntry}"></p>
-                            <p class="card-text" th:text="${blog.author}"></p>
+                            <p id="postBody" class="card-text" th:text="${blog.blogEntry}"></p>
                         </div>
                         <div class="card-footer">
                             <a href="#" th:href="@{blogposts/{id}(id=${blog.id})}">
-                                <button class="btn btn-primary">Edit</button>
+                                <button id="postAlterButton" class="btn btn-primary">Edit</button>
                             </a>
                             <a href="#" th:href="@{blogposts/delete/{id}(id=${blog.id})}">
-                                <button class="btn btn-danger">Delete</button>
+                                <button id="postAlterButton" class="btn btn-danger">Delete</button>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <a th:href="@{/blogpost/new}">
-            <button class="btn btn-primary">Submit a New Blog Post</button>
-        </a>
-
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
