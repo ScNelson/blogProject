@@ -42,6 +42,18 @@ public class BlogPostController {
         return "blogpost/new";
     }
 
+    @GetMapping(value = "/blogposts/view/{id}")
+    public String viewPostWithId(@PathVariable Long id, BlogPost blogPost, Model model) {
+        Optional<BlogPost> post = blogPostRepository.findById(id);
+
+        BlogPost result;
+        if (post.isPresent()) {
+            result = post.get();
+            model.addAttribute("blogPost", result);
+        }
+        return "blogpost/view";
+    }
+
     public void addModelAttributes(BlogPost blogPost, Model model) {
         model.addAttribute("title", blogPost.getTitle());
         model.addAttribute("author", blogPost.getAuthor());
