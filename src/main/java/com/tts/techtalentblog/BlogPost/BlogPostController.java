@@ -18,6 +18,9 @@ public class BlogPostController {
     @Autowired
     private BlogPostRepository blogPostRepository;
 
+    @Autowired
+    private BlogPostService blogPostService;
+
     private List<BlogPost> posts = new ArrayList<>();
 
     @GetMapping(value = "/")
@@ -35,6 +38,24 @@ public class BlogPostController {
         // blogPost needs to match the folder name in templates
         // index is the html file in the blogPost folder
         return "blogPost/index";
+    }
+
+    @GetMapping(value = "/blogposts/tags/{tag}")
+    public String indexTagged(BlogPost blogPost, @PathVariable(value = "tag") String tag, Model model) {
+        // Clear out the List
+        posts.removeAll(posts);
+
+        // Refill the List with updated set of BlogPosts
+        for (BlogPost postFromDB : blogPostService.findAllWithTag(tag)) {
+            posts.add(postFromDB);
+        }
+
+        model.addAttribute("posts", posts);
+        model.addAttribute("tag", tag);
+
+        // blogPost needs to match the folder name in templates
+        // index is the html file in the blogPost folder
+        return "blogPost/taggedPosts";
     }
 
     @GetMapping(value = "blogpost/new")
@@ -59,11 +80,12 @@ public class BlogPostController {
         model.addAttribute("author", blogPost.getAuthor());
         model.addAttribute("author", blogPost.getTopic());
         model.addAttribute("blogEntry", blogPost.getBlogEntry());
+        model.addAttribute("tags", blogPost.getTags());
     }
 
     @PostMapping(value = "/blogpost")
     public String addNewBlogPost(BlogPost blogPost, Model model) {
-        blogPostRepository.save(blogPost);
+        blogPostService.save(blogPost);
 
         addModelAttributes(blogPost, model);
 
