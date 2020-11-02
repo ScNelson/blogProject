@@ -23,6 +23,9 @@
                         <div class="postAuthorDiv">
                             <p class="card-text postAuthor" th:text="${blog.author}"></p>
                         </div>
+                        <div th:each="tag:${blog.tags}">
+                            <a class="card-text postTopic" th:text="${tag.phrase}" th:href="@{blogposts/tags/{id}(id=${tag.phrase})}"></a>
+                        </div>
                         <div class="card-footer bg-dark">
                             <a href="#" th:href="@{blogposts/view/{id}(id=${blog.id})}">
                                 <button class="btn btn-outline-light postAlterButton">View</button>
