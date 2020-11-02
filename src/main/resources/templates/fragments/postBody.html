@@ -24,13 +24,13 @@
             </div>
         </div>
         <div class="card-footer bg-dark">
-            <a href="#" th:href="@{blogposts/view/{id}(id=${blog.id})}">
+            <a href="#" th:href="@{../../blogposts/view/{id}(id=${blog.id})}">
                 <button class="btn btn-outline-light postAlterButton">View</button>
             </a>
-            <a href="#" th:href="@{blogposts/edit/{id}(id=${blog.id})}">
+            <a href="#" th:href="@{../../blogposts/edit/{id}(id=${blog.id})}">
                 <button class="btn btn-outline-light postAlterButton">Edit</button>
             </a>
-            <a href="#" th:href="@{blogposts/delete/{id}(id=${blog.id})}">
+            <a href="#" th:href="@{../../blogposts/delete/{id}(id=${blog.id})}">
                 <button class="btn btn-outline-danger postAlterButton">Delete</button>
             </a>
             <!-- Modal Button, taken out until I figure out jQuery methods necessary to pass Thymeleaf variable
