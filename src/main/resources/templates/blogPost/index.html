@@ -18,31 +18,7 @@
             <div th:each="blog:${posts}">
                 <div class="card col-md-6 p-0 mb-3" style="min-width: 28rem">
                     <div class="panel panel-default postPanel">
-                        <p class="card-text postTopic" th:text="${blog.topic}"></p>
-                        <p class="card-title postTitle" th:text="${blog.title}"></p>
-                        <div class="postAuthorDiv">
-                            <p class="card-text postAuthor" th:text="${blog.author}"></p>
-                        </div>
-                        <div th:each="tag:${blog.tags}">
-                            <a class="card-text postTopic" th:text="${tag.phrase}" th:href="@{blogposts/tags/{id}(id=${tag.phrase})}"></a>
-                        </div>
-                        <div class="card-footer bg-dark">
-                            <a href="#" th:href="@{blogposts/view/{id}(id=${blog.id})}">
-                                <button class="btn btn-outline-light postAlterButton">View</button>
-                            </a>
-                            <a href="#" th:href="@{blogposts/edit/{id}(id=${blog.id})}">
-                                <button class="btn btn-outline-light postAlterButton">Edit</button>
-                            </a>
-                            <a href="#" th:href="@{blogposts/delete/{id}(id=${blog.id})}">
-                                <button class="btn btn-outline-danger postAlterButton">Delete</button>
-                            </a>
-                            <!-- Modal Button, taken out until I figure out jQuery methods necessary to pass Thymeleaf variable
-                            <button type="button" class="btn btn-outline-danger postAlterButton" data-toggle="modal"
-                                data-target="#exampleModal">
-                                Delete
-                            </button>
-                            -->
-                        </div>
+                        <div th:replace="fragments/postBody"></div>
                     </div>
                 </div>
                 <!-- Delete Modal -->
