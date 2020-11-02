@@ -20,8 +20,11 @@
                         <p class="card-text postAuthor" th:text="${blogPost.author}"></p>
                     </div>
                     <p class="card-text postBody" th:text="${blogPost.blogEntry}"></p>
-                    <div th:each="tag:${blogPost.tags}">
-                        <p class="card-text postTopic" th:text="${tag.phrase}"></p>
+                    <div class="postTagDiv">
+                        <p class="postTagTitle">Tags: </p>
+                        <div class="postTag" th:each="tag:${blogPost.tags}">
+                            <a class="card-text" th:text="${tag.phrase}" th:href="@{../../blogposts/tags/{id}(id=${tag.phrase})}"></a>
+                        </div>
                     </div>
                 </div>
             </div>
