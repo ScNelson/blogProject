@@ -80,6 +80,7 @@ public class BlogPostController {
         model.addAttribute("author", blogPost.getAuthor());
         model.addAttribute("author", blogPost.getTopic());
         model.addAttribute("blogEntry", blogPost.getBlogEntry());
+        model.addAttribute("tag", blogPost.getTag());
         model.addAttribute("tags", blogPost.getTags());
     }
 
@@ -101,10 +102,11 @@ public class BlogPostController {
             updatedPost.setAuthor(blogPost.getAuthor());
             updatedPost.setTopic(blogPost.getTopic());
             updatedPost.setBlogEntry(blogPost.getBlogEntry());
-            blogPostRepository.save(updatedPost);
+            updatedPost.setTag(blogPost.getTag());
+            blogPostService.save(updatedPost);
             model.addAttribute("blogPost", updatedPost);
 
-            addModelAttributes(blogPost, model);
+            addModelAttributes(updatedPost, model);
         }
 
         return "blogPost/result";
@@ -128,6 +130,7 @@ public class BlogPostController {
     @RequestMapping(value = "/blogposts/delete/{id}")
     public String deletePostWithID(@PathVariable Long id, BlogPost blogPost, Model model) {
         blogPostRepository.deleteById(id);
+        
         return "redirect:/";
     }
 }
