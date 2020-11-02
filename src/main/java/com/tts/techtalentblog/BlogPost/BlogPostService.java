@@ -24,14 +24,20 @@ public class BlogPostService {
         postRepository.save(post);
     }
 
+    public void update(BlogPost post) {
+        handleTags(post);
+    }
+
     private void handleTags(BlogPost post) {
         List<Tag> tags = new ArrayList<Tag>();
         String[] tagSplit = post.getTag().split(",");
         for (int i = 0; i < tagSplit.length; i++) {
             Tag tag = tagRepository.findByPhrase(tagSplit[i]);
-            tag = new Tag();
-            tag.setPhrase(tagSplit[i]);
-            tagRepository.save(tag);
+            if (tag == null) {
+                tag = new Tag();
+                tag.setPhrase(tagSplit[i]);
+                tagRepository.save(tag);
+            }
             tags.add(tag);
         }
         post.setTags(tags);
