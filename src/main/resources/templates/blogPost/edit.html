@@ -30,7 +30,10 @@
                     <input type="text" class="form-control mb-2 editFormNotBody" name="blogAuthor" th:field="*{author}" />
                 </div>
                 <textarea type="text" class="form-control mb-2 editFormBody" name="blogEntry" th:field="*{blogEntry}" />
-        
+                <div class="editForm">
+                    <label class="editFormNotBodyTitle" for="blogTags">Tags:</label>
+                    <input type="text" class="form-control mb-2 editFormNotBody" name="blogTags" th:field="*{tag}" />
+                </div>
                 <button type="submit" class="btn btn-dark submitPostButton">Submit</button>
             </div>
         </form>
